@@ -36,6 +36,11 @@ For example, to install bash related dotfiles, simply execute:
 
     % make bash
 
+The Makefile will first check whether Bash is installed before actually copying
+or symlinking the dotfiles. So you won't end up with a bunch of useless dotfiles
+when executing `make all` for example.
+
+
 [conky]: http://conky.sourceforge.net/
 [fish]: http://fishshell.com/
 [todo.txt]: https://github.com/ginatrapani/todo.txt-cli
