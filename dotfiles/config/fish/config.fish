@@ -1,6 +1,7 @@
 # set prompt colors
+set -xg fish_color_date yellow
 set -xg fish_color_user cyan
-set -xg fish_color_host yellow
+set -xg fish_color_host magenta
 set -xg fish_color_virtualenv blue
 
 set -xg __fish_git_prompt_show_informative_status 1

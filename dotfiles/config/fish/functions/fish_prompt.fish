@@ -5,19 +5,24 @@ function fish_prompt --description 'Write out the prompt'
         set -g __fish_prompt_normal (set_color normal)
     end
 
+    # time
+    set_color $fish_color_date
+    echo -n (date +'%H:%M ')
+    set_color normal
+
     # User
     set_color $fish_color_user
     echo -n (whoami)
     set_color normal
 
-    echo -n '@'
+    echo -n ' at '
 
     # Host
     set_color $fish_color_host
     echo -n (hostname -s)
     set_color normal
 
-    echo -n ':'
+    echo -n ' in '
 
     # PWD
     set_color $fish_color_cwd
