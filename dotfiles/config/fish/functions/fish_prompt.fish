@@ -1,6 +1,10 @@
 function fish_prompt --description 'Write out the prompt'
     set -l last_status $status
 
+    if not set -q __fish_prompt_normal
+        set -g __fish_prompt_normal (set_color normal)
+    end
+
     # User
     set_color $fish_color_user
     echo -n (whoami)
@@ -20,11 +24,10 @@ function fish_prompt --description 'Write out the prompt'
     echo -n (prompt_pwd)
     set_color normal
 
-    __terlar_git_prompt
-    echo
+    printf '%s\n' (__fish_git_prompt)
 
     if test $VIRTUAL_ENV
-    printf "(%s) " (set_color blue)(basename $VIRTUAL_ENV)(set_color normal)
+    printf "(%s) " (set_color $fish_color_virtualenv)(basename $VIRTUAL_ENV)(set_color normal)
     end
 
     if not test $last_status -eq 0
@@ -32,5 +35,4 @@ function fish_prompt --description 'Write out the prompt'
     end
 
     echo -n '➤ '
-    set_color normal
 end
