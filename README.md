@@ -1,9 +1,9 @@
-# Dotfiles
-My personal collection of dotfiles. This repo is meant as:
+# dotfiles
+My personal collection of dotfiles. This repo is meant to:
 
 - to make it able to work in a familiar machine environment on any OS X or
   Linux machine
-- remote backup
+- serve as remote backup
 
 However, you can always suggest a feature by sending a pull-requests. Patches
 in a faulty dotfile are welcome too.
@@ -12,13 +12,14 @@ You can use the provided `Makefile` to install all my dotfiles in your machine:
 
     % make [TARGET=...] [LINK=..]
 
-By default, this will create symlinks to the dotfiles in this repo. You can
-always override the variables to your wishes:
+By default, this will create symlinks to the dotfiles in this repo (it will
+also backup existing dotfiles). You can always override the variables to your
+wishes:
 
 Variable | Default   | Description
 -------- | --------- | -------------------------------------------------------
 `TARGET` | `${HOME}` | Where to put the dotfiles.
-`LINK`   | `ln -bs`  | Command to be used to symlink/copy dotfiles (if you don't like symlinks, you can override it with `cp -b` instead, for example.
+`LINK`   | `ln -bs`  | Command to be used to symlink/copy dotfiles (if you don't like symlinks, you can override it with `cp -b` for example)
 
 It's also possible to install a specific dotfile only, the following make
 targets are made available to you:
