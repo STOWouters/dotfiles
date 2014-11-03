@@ -31,6 +31,7 @@ Target  | Description
 `fish`  | Install [fish][] related dotfiles.
 `git`   | Install git related dotfiles.
 `todo`  | Install [todo.txt][] related dotfiles.
+`vim`   | Install vim related dotfiles.
 
 For example, to install bash related dotfiles, simply execute:
 
