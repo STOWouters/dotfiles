@@ -49,8 +49,11 @@ TODO		:= $(shell which todo)
 TODOCONFIG	:= ${DOTFILES}/todo/config
 TODOCONKY	:= ${DOTFILES}/todo/conky
 
+VIM			:= $(shell which vim)
+VIMRC		:= ${DOTFILES}/vimrc
 
-all: bash conky fish git todo
+
+all: bash conky fish git todo vim
 
 
 bash: ${BASH_PROFILE} ${BASHRC}
@@ -87,4 +90,19 @@ ifdef TODO
 	mkdir -p ${TARGET}/.todo/
 	${LINK} ${TODOCONFIG} ${TARGET}/.todo/config
 	${LINK} ${TODOCONKY} ${TARGET}/.todo/conky
+endif
+
+
+vim: vundle ${VIMRC}
+ifdef VIM
+	mkdir -p ${TARGET}/.vim/bundle
+	${LINK} ${VIMRC} ${TARGET}/.vimrc
+endif
+
+
+vundle:
+ifdef GIT
+	git clone 'https://github.com/gmarik/Vundle.vim.git' ${TARGET}/.vim/bundle/Vundle.vim
+else
+	$(error Needs `git` to execute target, please install git first or add git to PATH if already installed)
 endif

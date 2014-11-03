@@ -1,0 +1,43 @@
+" use bash as shell
+set sh=bash
+
+" required for Vundle plugin
+set nocompatible
+filetype off
+
+" set runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+
+" manage plugin through Vundle
+call vundle#begin()
+Plugin 'Stijn-Flipper/autodate.vim'
+Plugin 'spolu/dwm.vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'evidens/vim-twig'
+call vundle#end()
+
+" required for Vundle plugin
+filetype plugin indent on
+
+" default indendation settings
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+" enable line numbers
+set nu
+
+" default long line settings
+set textwidth=79
+set nowrap
+
+" force markdown syntax highlight for *.md files
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" vim airline
+set laststatus=2
+set t_Co=256
+let g:airline_theme='silver'
