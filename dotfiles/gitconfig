@@ -1,0 +1,11 @@
+[user]
+        name    = Stijn-Flipper
+        email   = w.stijn@gmail.com
+[push]
+        default = matching
+[hub]
+        protocol= https
+[alias]
+        tree    = log --graph --decorate --pretty=oneline --abbrev-commit
+[url "git@github.com:"]
+        pushInsteadOf = https://github.com/

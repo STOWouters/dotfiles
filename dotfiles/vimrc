@@ -1,0 +1,27 @@
+" use bash as shell
+set sh=bash
+
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
+" default indendation settings
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+" enable line numbers
+set nu
+
+" default long line settings
+set textwidth=79
+set nowrap
+
+" force markdown syntax highlight for *.md files
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" vim airline
+set laststatus=2
+set t_Co=256
+let g:airline_theme='silver'
