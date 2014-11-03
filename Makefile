@@ -45,8 +45,6 @@ GIT			:= $(shell which git)
 GITIGNORE	:= ${DOTFILES}/config/git/ignore
 GITCONFIG	:= ${DOTFILES}/gitconfig
 
-GUAKE		:= $(shell which guake)
-
 TODO		:= $(shell which todo)
 TODOCONFIG	:= ${DOTFILES}/todo/config
 TODOCONKY	:= ${DOTFILES}/todo/conky
