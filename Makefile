@@ -23,7 +23,7 @@
 #
 # Last modified: 03 November 2014.
 # By: Stijn Wouters.
-.PHONY: all bash conky fish git todo
+.PHONY: all bash conky editorconfig fish git todo
 
 
 DOTFILES	:= ${PWD}/dotfiles
@@ -36,6 +36,8 @@ BASHRC		:= ${DOTFILES}/bashrc
 
 CONKY		:= $(shell which conky)
 CONKYRC		:= ${DOTFILES}/conkyrc
+
+EDITORCFG	:= ${DOTFILES}/editorconfig
 
 FISH		:= $(shell which fish)
 FISHCONFIG	:= ${DOTFILES}/config/fish/config.fish
@@ -70,6 +72,10 @@ ifdef CONKY
 endif
 
 
+editorconfig: ${EDITORCFG}
+	${LINK} ${EDITORCFG} ${TARGET}/.editorconfig
+
+
 fish: ${FISHCONFIG} ${FISH_PROMPT}
 ifdef FISH
 	mkdir -p ${TARGET}/.config/fish/functions/
@@ -96,7 +102,7 @@ endif
 
 vim: ${VIMRC}
 ifdef VIM
-	mkdir -p ${TARGET}/.vim/bundle
+	mkdir -p ${TARGET}/.vim/bundle/
 	[[ -d ${VUNDLE} ]] || git clone 'https://github.com/gmarik/Vundle.vim.git' ${VUNDLE}
 	${LINK} ${VIMRC} ${TARGET}/.vimrc
 endif
