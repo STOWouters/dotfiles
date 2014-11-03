@@ -26,6 +26,7 @@ function fish_prompt --description 'Write out the prompt'
 
     printf '%s\n' (__fish_git_prompt)
 
+    # Python virtualenv, if working in venv
     if test $VIRTUAL_ENV
     printf "(%s) " (set_color $fish_color_virtualenv)(basename $VIRTUAL_ENV)(set_color normal)
     end

@@ -24,6 +24,7 @@ set -xg __fish_git_prompt_color_invalidstate red
 set -xg __fish_git_prompt_color_untrackedfiles $fish_color_normal
 set -xg __fish_git_prompt_color_cleanstate green bold
 
-# use virtualfish compatible aliases
+# use virtualfish compatible aliases:
+# https://github.com/adambrenecki/virtualfish
 set -xg VIRTUALFISH_COMPAT_ALIASES
 source $HOME/Git/virtualfish/virtual.fish

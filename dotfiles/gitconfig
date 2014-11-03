@@ -1,9 +1,29 @@
+# general user information
 [user]
-        name    = Stijn-Flipper
-        email   = w.stijn@gmail.com
+    name    = Stijn-Flipper
+    email   = w.stijn@gmail.com
+
+
 [push]
-        default = matching
+
+    # Use the Git 1.x.x default to avoid errors on machines with old Git
+    # installations. To use `simple` instead, prompt in your terminal:
+    #
+    #       % git config --global push.default simple
+    #
+    # Also check out: http://git.io/mMah-w
+    default = matching
+
 [hub]
-        protocol= https
+
+    # Use https protocol when cloning through `hub` command, because this
+    # always works. The SSH version requirs ssh-agent to be installed.
+    #
+    # More about hub: http://hub.github.com/
+    protocol= https
+
+
 [alias]
-        tree    = log --graph --decorate --pretty=oneline --abbrev-commit
+
+    # display a nice git tree
+    tree    = log --graph --decorate --pretty=oneline --abbrev-commit
