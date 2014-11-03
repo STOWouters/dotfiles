@@ -7,5 +7,3 @@
         protocol= https
 [alias]
         tree    = log --graph --decorate --pretty=oneline --abbrev-commit
-[url "git@github.com:"]
-        pushInsteadOf = https://github.com/
