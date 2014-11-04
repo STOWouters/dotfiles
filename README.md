@@ -1,7 +1,9 @@
 # dotfiles
+![Screenshot](./screenshot.png)
+
 My personal collection of dotfiles. This repo is meant to:
 
-- to make it able to work in a familiar machine environment on any OS X or
+- make it able to work in a familiar machine environment on any OS X or
   Linux machine
 - serve as remote backup
 
