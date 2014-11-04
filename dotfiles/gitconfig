@@ -1,4 +1,3 @@
-# general user information
 [user]
     name    = Stijn-Flipper
     email   = w.stijn@gmail.com
@@ -14,6 +13,7 @@
     # Also check out: http://git.io/mMah-w
     default = matching
 
+
 [hub]
 
     # Use https protocol when cloning through `hub` command, because this
@@ -27,3 +27,6 @@
 
     # display a nice git tree
     tree    = log --graph --decorate --pretty=oneline --abbrev-commit
+
+    # short status summary
+    stat    = status -s
