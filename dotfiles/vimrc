@@ -10,6 +10,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 " manage plugin through Vundle
 call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+
 Plugin 'Stijn-Flipper/autodate.vim'
 Plugin 'spolu/dwm.vim'
 Plugin 'editorconfig/editorconfig-vim'
