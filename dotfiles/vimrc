@@ -17,6 +17,7 @@ Plugin 'spolu/dwm.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'evidens/vim-twig'
 call vundle#end()
@@ -43,4 +44,9 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " vim airline
 set laststatus=2
 set t_Co=256
-let g:airline_theme='silver'
+let g:airline_theme='solarized'
+
+" vim solarized
+syntax enable
+set background=dark
+colorscheme solarized

@@ -21,9 +21,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-# Last modified: 03 November 2014.
+# Last modified: 04 November 2014.
 # By: Stijn Wouters.
-.PHONY: all bash conky editorconfig fish git todo
+.PHONY: all bash conky editorconfig fish git terminator todo vim
 
 
 DOTFILES	:= ${PWD}/dotfiles
@@ -51,12 +51,15 @@ TODO		:= $(shell which todo)
 TODOCONFIG	:= ${DOTFILES}/todo/config
 TODOCONKY	:= ${DOTFILES}/todo/conky
 
+TERMINATOR	:= $(shell which terminator)
+TERMCFG		:= ${DOTFILES}/config/terminator/config
+
 VIM			:= $(shell which vim)
 VIMRC		:= ${DOTFILES}/vimrc
 VUNDLE		:= ${TARGET}/.vim/bundle/Vundle.vim
 
 
-all: bash conky fish git todo vim
+all: bash conky fish git terminator todo vim
 
 
 bash: ${BASH_PROFILE} ${BASHRC}
@@ -89,6 +92,13 @@ ifdef GIT
 	mkdir -p ${TARGET}/.config/git/
 	${LINK} ${GITCONFIG} ${TARGET}/.gitconfig
 	${LINK} ${GITIGNORE} ${TARGET}/.config/git/ignore
+endif
+
+
+terminator: ${TERMCFG}
+ifdef TERMINATOR
+	mkdir -p ${TARGET}/.config/terminator/
+	${LINK} ${TERMCFG} ${TARGET}/.config/terminator/config
 endif
 
 
