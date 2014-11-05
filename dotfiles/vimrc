@@ -50,3 +50,6 @@ let g:airline_theme='solarized'
 syntax enable
 set background=dark
 colorscheme solarized
+
+" highlight current line
+set cursorline
