@@ -1,4 +1,4 @@
-" use bash as shell
+" use Bash as shell instead Fish shell (fixes incompatibility issues)
 set sh=bash
 
 " required for Vundle plugin
@@ -25,31 +25,41 @@ call vundle#end()
 " required for Vundle plugin
 filetype plugin indent on
 
-" default indendation settings
+
+" ===============
+" PLUGIN SETTINGS
+" ===============
+
+" AIRLINE
+" -------
+set laststatus=2
+set t_Co=256
+let g:airline_theme='solarized'
+
+" SYNTASTIC
+" ---------
+let g:syntastic_cpp_compiler_options = '--std=c++11 --stdlib=libc++'
+
+
+" ===============
+" CUSTOM SETTINGS
+" ===============
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 
-" enable line numbers
-set nu
+set number
 
-" default long line settings
+set cursorline
+
 set textwidth=79
 set nowrap
 
 " force markdown syntax highlight for *.md files
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
-" vim airline
-set laststatus=2
-set t_Co=256
-let g:airline_theme='solarized'
-
-" vim solarized
+" vim solarized theme
 syntax enable
 set background=dark
 colorscheme solarized
-
-" highlight current line
-set cursorline
