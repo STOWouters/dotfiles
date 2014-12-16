@@ -5,3 +5,7 @@
 Session.vim
 .netrwhist
 *~
+
+# ignore syntastic configuration files. See also:
+# https://github.com/scrooloose/syntastic
+.syntastic_cpp_config
