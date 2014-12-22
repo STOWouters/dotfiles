@@ -41,6 +41,7 @@ EDITORCFG	:= ${DOTFILES}/editorconfig
 
 FISH		:= $(shell which fish)
 FISHCONFIG	:= ${DOTFILES}/config/fish/config.fish
+FISHVIRTUAL	:= ${DOTFILES}/config/fish/virtual.fish
 FISH_PROMPT	:= ${DOTFILES}/config/fish/functions/fish_prompt.fish
 
 GIT			:= $(shell which git)
@@ -83,6 +84,7 @@ fish: ${FISHCONFIG} ${FISH_PROMPT}
 ifdef FISH
 	mkdir -p ${TARGET}/.config/fish/functions/
 	${LINK} ${FISHCONFIG} ${TARGET}/.config/fish/config.fish
+	${LINK} ${FISHVIRTUAL} ${TARGET}/.config/fish/virtual.fish
 	${LINK} ${FISH_PROMPT} ${TARGET}/.config/fish/functions/fish_prompt.fish
 endif
 
