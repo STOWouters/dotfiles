@@ -21,7 +21,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-# Last modified: 04 November 2014.
+# Last modified: 22 December 2014.
 # By: Stijn Wouters.
 .PHONY: all bash conky editorconfig fish git terminator todo vim
 
@@ -113,6 +113,6 @@ endif
 vim: ${VIMRC}
 ifdef VIM
 	mkdir -p ${TARGET}/.vim/bundle/
-	[[ -d ${VUNDLE} ]] || git clone 'https://github.com/gmarik/Vundle.vim.git' ${VUNDLE}
+	[ -d ${VUNDLE} ] || git clone 'https://github.com/gmarik/Vundle.vim.git' ${VUNDLE}
 	${LINK} ${VIMRC} ${TARGET}/.vimrc
 endif
