@@ -27,5 +27,9 @@ set -xg __fish_git_prompt_color_cleanstate green bold
 
 # use virtualfish compatible aliases:
 # https://github.com/adambrenecki/virtualfish
+#
+# only source it when using fish 2.1 or older
 set -xg VIRTUALFISH_COMPAT_ALIASES
-source virtual.fish
+if not test $FISH_VERSION = (echo $FISH_VERSION | grep -E "^(1|(2\.0))")
+    source virtual.fish
+end
