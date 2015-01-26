@@ -21,7 +21,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-# Last modified: 22 December 2014.
+# Last modified: 26 January 2015.
 # By: Stijn Wouters.
 .PHONY: all bash conky editorconfig fish git terminator todo vim
 
@@ -33,9 +33,6 @@ LINK		:= ln -bs
 BASH		:= $(shell which bash)
 BASH_PROFILE:= ${DOTFILES}/bash_profile
 BASHRC		:= ${DOTFILES}/bashrc
-
-CONKY		:= $(shell which conky)
-CONKYRC		:= ${DOTFILES}/conkyrc
 
 EDITORCFG	:= ${DOTFILES}/editorconfig
 
@@ -50,7 +47,6 @@ GITCONFIG	:= ${DOTFILES}/gitconfig
 
 TODO		:= $(shell which todo)
 TODOCONFIG	:= ${DOTFILES}/todo/config
-TODOCONKY	:= ${DOTFILES}/todo/conky
 
 TERMINATOR	:= $(shell which terminator)
 TERMCFG		:= ${DOTFILES}/config/terminator/config
@@ -67,12 +63,6 @@ bash: ${BASH_PROFILE} ${BASHRC}
 ifdef BASH
 	${LINK} ${BASH_PROFILE} ${TARGET}/.bash_profile
 	${LINK} ${BASHRC} ${TARGET}/.bashrc
-endif
-
-
-conky: ${CONKYRC}
-ifdef CONKY
-	${LINK} ${CONKYRC} ${TARGET}/.conkyrc
 endif
 
 
@@ -108,7 +98,6 @@ todo: ${TODOCONFIG}
 ifdef TODO
 	mkdir -p ${TARGET}/.todo/
 	${LINK} ${TODOCONFIG} ${TARGET}/.todo/config
-	${LINK} ${TODOCONKY} ${TARGET}/.todo/conky
 endif
 
 
