@@ -63,6 +63,9 @@ set nowrap
 " force markdown syntax highlight for *.md files
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
+" set no column width for textile/(La)Tex files, also disable line numbering
+autocmd BufNewFile,BufReadPost *.text* set textwidth=0 nonumber
+
 " vim solarized theme
 syntax enable
 set background=dark
