@@ -20,6 +20,7 @@ Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'evidens/vim-twig'
+Plugin 'timcharper/textile.vim'
 call vundle#end()
 
 " required for Vundle plugin
