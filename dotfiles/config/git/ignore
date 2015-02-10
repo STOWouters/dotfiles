@@ -8,4 +8,4 @@ Session.vim
 
 # ignore syntastic configuration files. See also:
 # https://github.com/scrooloose/syntastic
-.syntastic_cpp_config
+.syntastic_*_config
