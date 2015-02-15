@@ -33,3 +33,6 @@ set -xg VIRTUALFISH_COMPAT_ALIASES
 if not test $FISH_VERSION = (echo $FISH_VERSION | grep -E "^(1|(2\.0))")
     source virtual.fish
 end
+
+# export PATH
+set -xg PATH $PATH $HOME/bin

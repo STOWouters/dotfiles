@@ -26,3 +26,9 @@ export EDITOR=/usr/bin/vim
 #export PILOTRATE=115200
 
 test -s ~/.alias && . ~/.alias || true
+
+
+# User specific environment and startup programs
+PATH=$PATH:$HOME/bin
+
+export PATH
