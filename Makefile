@@ -21,7 +21,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-# Last modified: 26 January 2015.
+# Last modified: 15 February 2015.
 # By: Stijn Wouters.
 .PHONY: all bash conky editorconfig fish git terminator todo vim
 
@@ -31,7 +31,6 @@ TARGET		:= ${HOME}
 LINK		:= ln -bs
 
 BASH		:= $(shell which bash)
-BASH_PROFILE:= ${DOTFILES}/bash_profile
 BASHRC		:= ${DOTFILES}/bashrc
 
 EDITORCFG	:= ${DOTFILES}/editorconfig
@@ -59,9 +58,8 @@ VUNDLE		:= ${TARGET}/.vim/bundle/Vundle.vim
 all: bash conky fish git terminator todo vim
 
 
-bash: ${BASH_PROFILE} ${BASHRC}
+bash: ${BASHRC}
 ifdef BASH
-	${LINK} ${BASH_PROFILE} ${TARGET}/.bash_profile
 	${LINK} ${BASHRC} ${TARGET}/.bashrc
 endif
 
