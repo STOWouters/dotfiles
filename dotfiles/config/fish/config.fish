@@ -38,7 +38,7 @@ set fish_color_virtualenv blue
 set __fish_git_prompt_show_informative_status 1
 set __fish_git_prompt_hide_untrackedfiles 1
 
-set __fish_git_prompt_color_branch magenta bold
+set __fish_git_prompt_color_branch magenta --bold
 set __fish_git_prompt_showupstream "informative"
 set __fish_git_prompt_char_upstream_ahead "↑"
 set __fish_git_prompt_char_upstream_behind "↓"
@@ -54,7 +54,7 @@ set __fish_git_prompt_color_dirtystate blue
 set __fish_git_prompt_color_stagedstate yellow
 set __fish_git_prompt_color_invalidstate red
 set __fish_git_prompt_color_untrackedfiles $fish_color_normal
-set __fish_git_prompt_color_cleanstate green bold
+set __fish_git_prompt_color_cleanstate green --bold
 
 # use virtualfish compatible aliases:
 # https://github.com/adambrenecki/virtualfish
