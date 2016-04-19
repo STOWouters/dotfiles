@@ -1,107 +1,62 @@
-# Makefile
-# Install dotfiles using `make` command
-#
-# Copyright (c) 2014  Stijn Wouters <w.stijn@gmail.com>
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-#
-# Last modified: 15 February 2015.
-# By: Stijn Wouters.
-.PHONY: all bash conky editorconfig fish git terminator todo vim
-
-
-DOTFILES	:= ${PWD}/dotfiles
-TARGET		:= ${HOME}
-LINK		:= ln -bs
+TARGET		:= $(HOME)
+INSTALL		:= ln -bs
+MKDIR		:= mkdir
+MKDIRFLAGS	:=
 
 BASH		:= $(shell which bash)
-BASHRC		:= ${DOTFILES}/bashrc
+BASHRC		:= dotfiles/bashrc
 
-EDITORCFG	:= ${DOTFILES}/editorconfig
+EDITORCFG	:= dotfiles/editorconfig
 
 FISH		:= $(shell which fish)
-FISHCONFIG	:= ${DOTFILES}/config/fish/config.fish
-FISHVIRTUAL	:= ${DOTFILES}/config/fish/virtual.fish
-FISH_PROMPT	:= ${DOTFILES}/config/fish/functions/fish_prompt.fish
+FISHCONFIG	:= dotfiles/config/fish/config.fish
+FISHPROMPT	:= dotfiles/config/fish/functions/fish_prompt.fish
 
 GIT			:= $(shell which git)
-GITIGNORE	:= ${DOTFILES}/config/git/ignore
-GITCONFIG	:= ${DOTFILES}/gitconfig
-
-TODO		:= $(shell which todo)
-TODOCONFIG	:= ${DOTFILES}/todo/config
+GITIGNORE	:= dotfiles/config/git/ignore
+GITCONFIG	:= dotfiles/gitconfig
 
 TERMINATOR	:= $(shell which terminator)
-TERMCFG		:= ${DOTFILES}/config/terminator/config
+TERMCFG		:= dotfiles/config/terminator/config
 
 VIM			:= $(shell which vim)
-VIMRC		:= ${DOTFILES}/vimrc
-VUNDLE		:= ${TARGET}/.vim/bundle/Vundle.vim
+VIMRC		:= dotfiles/vimrc
 
+all: bash editorconfig fish git terminator vim
 
-all: bash conky fish git terminator todo vim
-
-
-bash: ${BASHRC}
+bash: $(BASHRC)
 ifdef BASH
-	${LINK} ${BASHRC} ${TARGET}/.bashrc
+	$(INSTALL) $(BASHRC) $(TARGET)/.bashrc
 endif
 
+editorconfig: $(EDITORCFG)
+	$(INSTALL) $(EDITORCFG) $(TARGET)/.editorconfig
 
-editorconfig: ${EDITORCFG}
-	${LINK} ${EDITORCFG} ${TARGET}/.editorconfig
-
-
-fish: ${FISHCONFIG} ${FISH_PROMPT}
+fish: $(FISHCONFIG) $(FISHPROMPT)
 ifdef FISH
-	mkdir -p ${TARGET}/.config/fish/functions/
-	${LINK} ${FISHCONFIG} ${TARGET}/.config/fish/config.fish
-	${LINK} ${FISHVIRTUAL} ${TARGET}/.config/fish/virtual.fish
-	${LINK} ${FISH_PROMPT} ${TARGET}/.config/fish/functions/fish_prompt.fish
+	$(MKDIR) $(MKDIRFLAGS) -p $(TARGET)/.config/fish/functions/
+	$(INSTALL) $(FISHCONFIG) $(TARGET)/.config/fish/config.fish
+	$(INSTALL) $(FISHPROMPT) $(TARGET)/.config/fish/functions/fish_prompt.fish
+	@echo '[INFO]: install virtualfish by prompting `[sudo] pip3 install virtualfish`'
 endif
 
-
-git: ${GITIGNORE}
+git: $(GITIGNORE)
 ifdef GIT
-	mkdir -p ${TARGET}/.config/git/
-	${LINK} ${GITCONFIG} ${TARGET}/.gitconfig
-	${LINK} ${GITIGNORE} ${TARGET}/.config/git/ignore
+	$(MKDIR) $(MKDIRFLAGS) -p $(TARGET)/.config/git/
+	$(INSTALL) $(GITCONFIG) $(TARGET)/.gitconfig
+	$(INSTALL) $(GITIGNORE) $(TARGET)/.config/git/ignore
 endif
 
-
-terminator: ${TERMCFG}
+terminator: $(TERMCFG)
 ifdef TERMINATOR
-	mkdir -p ${TARGET}/.config/terminator/
-	${LINK} ${TERMCFG} ${TARGET}/.config/terminator/config
+	$(MKDIR) $(MKDIRFLAGS) -p $(TARGET)/.config/terminator/
+	$(INSTALL) $(TERMCFG) $(TARGET)/.config/terminator/config
 endif
 
-
-todo: ${TODOCONFIG}
-ifdef TODO
-	mkdir -p ${TARGET}/.todo/
-	${LINK} ${TODOCONFIG} ${TARGET}/.todo/config
-endif
-
-
-vim: ${VIMRC}
+vim: $(VIMRC)
 ifdef VIM
-	mkdir -p ${TARGET}/.vim/bundle/
-	[ -d ${VUNDLE} ] || git clone 'https://github.com/gmarik/Vundle.vim.git' ${VUNDLE}
-	${LINK} ${VIMRC} ${TARGET}/.vimrc
+	$(MKDIR) $(MKDIRFLAGS) -p $(TARGET)/.vim/bundle/
+	$(INSTALL) $(VIMRC) $(TARGET)/.vimrc
+	@echo '[INFO]: install Vundle by prompting `git clone https://github.com/gmarik/Vundle.vim.git $(TARGET)/.vim/bundle/Vundle.vim`'
+	@echo '[INFO]: run `:PluginInstall` command when re-opening VIm'
 endif

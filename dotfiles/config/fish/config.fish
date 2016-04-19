@@ -58,12 +58,7 @@ set __fish_git_prompt_color_cleanstate green --bold
 
 # use virtualfish compatible aliases:
 # https://github.com/adambrenecki/virtualfish
-#
-# only source it when using fish 2.1 or older
-set -x VIRTUALFISH_COMPAT_ALIASES
-if not test $FISH_VERSION = (echo $FISH_VERSION | grep -E "^(1|(2\.0))")
-    source virtual.fish
-end
+eval (python3 -m virtualfish compat_aliases)
 
 # export PATH
 set -x PATH $PATH $HOME/bin
