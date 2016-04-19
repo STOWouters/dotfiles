@@ -9,26 +9,3 @@ Session.vim
 # ignore syntastic configuration files. See also:
 # https://github.com/scrooloose/syntastic
 .syntastic_*_config
-
-# Eclipse gitignore
-*.pydevproject
-.metadata
-.gradle
-bin/
-tmp/
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.settings/
-.loadpath
-.project
-.externalToolBuilders/
-*.launch
-.cproject
-.classpath
-.factorypath
-.buildpath
-.target
-.texlipse
