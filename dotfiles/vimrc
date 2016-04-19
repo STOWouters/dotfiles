@@ -29,6 +29,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'AlxHnr/latex_preview'
 Plugin 'dylon/vim-antlr'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
 " required for Vundle plugin
