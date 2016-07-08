@@ -59,6 +59,11 @@ let g:syntastic_mode_map = {'passive_filetypes': ['sass', 'scss']}
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
 
+" YOUCOMPLETEME
+" -------------
+let g:ycm_server_python_interpreter = '/usr/bin/python'
+let g:ycm_autoclose_preview_window_after_completion = 1
+
 
 " ===============
 " CUSTOM SETTINGS
