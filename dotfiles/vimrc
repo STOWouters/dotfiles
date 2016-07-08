@@ -100,4 +100,4 @@ autocmd BufNewFile,BufReadPost *.g4 set filetype=antlr4
 " vim solarized theme
 syntax enable
 colorscheme solarized
-set background=dark
+set background=light
