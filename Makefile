@@ -4,23 +4,23 @@ MKDIR		:= mkdir
 MKDIRFLAGS	:=
 
 BASH		:= $(shell which bash)
-BASHRC		:= dotfiles/bashrc
+BASHRC		:= $(PWD)/dotfiles/bashrc
 
-EDITORCFG	:= dotfiles/editorconfig
+EDITORCFG	:= $(PWD)/dotfiles/editorconfig
 
 FISH		:= $(shell which fish)
-FISHCONFIG	:= dotfiles/config/fish/config.fish
-FISHPROMPT	:= dotfiles/config/fish/functions/fish_prompt.fish
+FISHCONFIG	:= $(PWD)/dotfiles/config/fish/config.fish
+FISHPROMPT	:= $(PWD)/dotfiles/config/fish/functions/fish_prompt.fish
 
 GIT			:= $(shell which git)
-GITIGNORE	:= dotfiles/config/git/ignore
-GITCONFIG	:= dotfiles/gitconfig
+GITIGNORE	:= $(PWD)/dotfiles/config/git/ignore
+GITCONFIG	:= $(PWD)/dotfiles/gitconfig
 
 TERMINATOR	:= $(shell which terminator)
-TERMCFG		:= dotfiles/config/terminator/config
+TERMCFG		:= $(PWD)/dotfiles/config/terminator/config
 
 VIM			:= $(shell which vim)
-VIMRC		:= dotfiles/vimrc
+VIMRC		:= $(PWD)/dotfiles/vimrc
 
 all: bash editorconfig fish git terminator vim
 
