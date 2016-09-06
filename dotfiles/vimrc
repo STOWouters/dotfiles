@@ -23,8 +23,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'evidens/vim-twig'
-Plugin 'vim-scripts/click.vim'
-Plugin 'dln/avro-vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'AlxHnr/latex_preview'
@@ -43,7 +41,6 @@ filetype plugin indent on
 " AIRLINE
 " -------
 set laststatus=2
-set t_Co=256
 let g:airline_theme='solarized'
 
 " SYNTASTIC
@@ -99,5 +96,6 @@ autocmd BufNewFile,BufReadPost *.g4 set filetype=antlr4
 
 " vim solarized theme
 syntax enable
+set t_Co=256
 colorscheme solarized
 set background=light
