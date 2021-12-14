@@ -1,0 +1,9 @@
+[core]
+
+    # Use Vim as default editor for commit messages
+    editor = vim
+
+    # Add global gitignore
+    #
+    # https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files#configuring-ignored-files-for-all-repositories-on-your-computer
+    excludesfile = /home/stijn/.gitignore
