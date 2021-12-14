@@ -1,54 +1,28 @@
 # dotfiles
 
-![Screenshot](screenshot.png)
+My personal collection of dotfiles. This repo serves as remote backup and also makes it possible to synchronize the files between different machines that I work on.
 
-My personal collection of dotfiles. This repo is meant to:
+## Installation
 
-- make it able to work in a familiar machine environment on any OS X or
-  Linux machine
-- serve as remote backup
+Use the provided `Makefiles` to install all or some of the dotfiles on your machine:
 
-However, you can always suggest a feature by sending a pull-requests. Patches
-in a faulty dotfile are welcome too.
+    $ make
 
-You can use the provided `Makefile` to install all my dotfiles in your machine:
+By default, this will copy all contents in the `dotfiles/` folder to the home directory (set by the `HOME` environment variable). This will not override any existing dotfiles, as a backup file is automatically generated before copying the contents.
 
-    $ make [TARGET=...] [INSTALL=..]
-
-By default, this will create symlinks to the dotfiles in this repo (it will
-also backup existing dotfiles). You can always override the variables to your
-wishes:
-
-Variable     | Default   | Description
------------- | --------- | ----------------------------------------------------
-`TARGET`     | `$(HOME)` | Where to put the dotfiles
-`INSTALL`    | `ln -bs`  | Command to be used to install the dotfiles
-`MKDIR`      | `mkdir` | Command for creating additional directories
-`MKDIRFLAGS` | (empty) | Additional flags to the `MKDIR` command
-
-It's also possible to install a specific dotfile only, the following make
-targets are made available to you:
+The following targets are provided if you want to install specific dotfiles:
 
 Target         | Description
 -------------- | --------------------------------------------------------------
 `all`          | Install all dotfiles (default)
-`bash`         | Install bash related dotfiles
-`editorconfig` | Install [editorconfig][] related dotfiles
 `fish`         | Install [fish][] related dotfiles
-`git`          | Install git related dotfiles
-`terminator`   | Install [terminator][] related dotfiles
+`git`          | Install [Git][] related dotfiles
 `vim`          | Install [VIm][] related dotfiles
 
-For example, to install bash related dotfiles, simply execute:
+[fish]: http://fishshell.com/
+[Git]: https://git-scm.com/
+[VIm]: http://www.vim.org/
+
+For example, to install Git related dotfiles:
 
     $ make bash
-
-The Makefile will first check whether Bash is installed before actually copying
-or symlinking the dotfiles. So you won't end up with a bunch of useless dotfiles
-when executing `make all` for example.
-
-
-[editorconfig]: http://editorconfig.org/
-[fish]: http://fishshell.com/
-[terminator]: https://launchpad.net/terminator
-[VIm]: http://www.vim.org/
