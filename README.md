@@ -25,4 +25,4 @@ Target         | Description
 
 For example, to install Git related dotfiles:
 
-    $ make bash
+    $ make git
